@@ -1,15 +1,3 @@
-class Foo
-{
-public:
-	Foo(
-		int,
-		int
-	)
-	{
-	}
-
-};
-
 class Bar
 {
 public:
@@ -19,10 +7,12 @@ public:
 	}
 
 	Bar(
-		int x,
-		int y
-	) : Foo(x, y)
+		int x_,
+		int y_
+	) : x(x_), y(y_)
 	{
 	}
 
+	int x;
+	int y;
 };
