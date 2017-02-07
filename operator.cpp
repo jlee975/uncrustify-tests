@@ -32,5 +32,5 @@ public:
 	}
 
 private:
-	Bar bar;
+	foo::Bar bar;
 };
