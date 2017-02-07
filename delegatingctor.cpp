@@ -1,3 +1,14 @@
+class Foo
+{
+public:
+	Foo(
+		int x_,
+		int y_
+	) : x(x_), y(y_)
+	{
+	}
+};
+
 class Bar
 {
 public:
@@ -7,12 +18,11 @@ public:
 	}
 
 	Bar(
-		int x_,
-		int y_
-	) : x(x_), y(y_)
+		int x,
+		int y
+	) : Foo(x, y)
 	{
 	}
 
-	int x;
-	int y;
+	Foo foo;
 };

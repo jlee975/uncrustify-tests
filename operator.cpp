@@ -30,7 +30,6 @@ public:
 	{
 		return bar;
 	}
-
 private:
 	foo::Bar bar;
 };
