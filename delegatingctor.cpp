@@ -7,6 +7,7 @@ public:
 	) : x(x_), y(y_)
 	{
 	}
+
 };
 
 class Bar
@@ -17,6 +18,7 @@ public:
 	{
 	}
 
+	// No split here
 	Bar(
 		int x,
 		int y
