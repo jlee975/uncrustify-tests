@@ -26,7 +26,7 @@ public:
 	// - No space before global scope operator
 	// - & treated like operator instead of reference
 	// - Space inserted between parentheses
-	operator const::foo::Bar & ( ) const
+	operator const ::foo::Bar&() const
 	{
 		return bar;
 	}
