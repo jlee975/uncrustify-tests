@@ -1,11 +1,6 @@
 # Uncrustify 0.64_d
 input_tab_size                  = 4
 output_tab_size                 = 4
-indent_columns                  = 4
-indent_class                    = true
-indent_func_call_param          = true
-indent_func_def_param           = true
-indent_paren_close              = 2
 sp_arith                        = force
 sp_assign                       = force
 sp_assign_default               = force
@@ -102,12 +97,12 @@ sp_endif_cmt                    = force
 sp_after_new                    = force
 sp_between_new_paren            = remove
 sp_before_tr_emb_cmt            = force
-align_func_params               = true
-align_var_def_span              = 1
-align_assign_span               = 1
-align_var_class_span            = 1
-align_right_cmt_span            = 2
-align_pp_define_span            = 4
+indent_columns                  = 4
+indent_func_call_param          = true
+indent_func_def_param           = true
+indent_col1_comment             = true
+indent_access_spec_body         = true
+indent_paren_close              = 2
 nl_assign_leave_one_liners      = true
 nl_enum_leave_one_liners        = true
 nl_cpp_lambda_leave_one_liners  = true
@@ -176,6 +171,12 @@ nl_after_struct                 = 1
 nl_after_class                  = 1
 nl_before_access_spec           = 1
 nl_after_return                 = true
+align_func_params               = true
+align_var_def_span              = 1
+align_assign_span               = 1
+align_var_class_span            = 1
+align_right_cmt_span            = 2
+align_pp_define_span            = 4
 mod_full_brace_do               = force
 mod_full_brace_for              = force
 mod_full_brace_if               = force
@@ -185,7 +186,7 @@ mod_remove_extra_semicolon      = true
 mod_add_long_switch_closebrace_comment = 20
 mod_add_long_ifdef_endif_comment = 20
 pp_indent_at_level              = true
-# option(s) with 'not default' value: 186
+# option(s) with 'not default' value: 187
 #
 # -=====-
 # Line              Tag           Parent          Columns Br/Lvl/pp     Flag   Nl  Text
@@ -194,26 +195,45 @@ pp_indent_at_level              = true
 #   1>          NEWLINE[            NONE][ 10/ 10/  1/  0][0/0/0][         0][1-0]
 #   2>       BRACE_OPEN[           CLASS][  1/  1/  2/  0][0/0/0][ 100000000][0-0] {
 #   2>          NEWLINE[            NONE][  2/  2/  1/  0][1/1/0][         0][1-0]
-#   3>          PRIVATE[            NONE][  1/  1/  7/  0][1/1/0][     60400][0-0] public
-#   3>    PRIVATE_COLON[            NONE][  7/  7/  8/  0][1/1/0][ 100000400][0-0]       :
-#   3>          NEWLINE[            NONE][  8/  8/  5/  0][1/1/0][         0][1-0]
-#   4>            CLASS[            NONE][  5/  5/ 10/  0][1/1/0][     70400][0-1]     class
-#   4>             TYPE[           CLASS][ 11/ 11/ 13/  1][1/1/0][       400][0-0]           In
-#   4>          NEWLINE[            NONE][ 13/ 13/  5/  0][1/1/0][         0][1-0]
-#   5>       BRACE_OPEN[           CLASS][  5/  5/  6/  0][1/1/0][ 100000400][0-1]     {
-#   5>          NEWLINE[            NONE][  6/  6/  5/  0][2/2/0][         0][1-0]
-#   6>      COMMENT_CPP[   COMMENT_WHOLE][  9/  5/ 53/  0][2/2/0][         0][0-1]         // public and private should be aligned to class
-#   6>          NEWLINE[            NONE][ 57/ 53/  5/  0][2/2/0][         0][1-0]
-#   7>          PRIVATE[            NONE][  1/  5/ 11/  0][2/2/0][     60400][0-1] public
-#   7>    PRIVATE_COLON[            NONE][  7/ 11/ 12/  0][2/2/0][ 100000400][0-0]       :
-#   7>          NEWLINE[            NONE][  8/ 12/  5/  0][2/2/0][         0][1-0]
-#   8>          PRIVATE[            NONE][  1/  5/ 12/  0][2/2/0][     60400][0-1] private
-#   8>    PRIVATE_COLON[            NONE][  8/ 12/ 13/  0][2/2/0][ 100000400][0-0]        :
-#   8>          NEWLINE[            NONE][  9/ 13/  5/  0][2/2/0][         0][1-0]
-#   9>      BRACE_CLOSE[           CLASS][  5/  5/  6/  0][1/1/0][ 100060400][0-1]     }
-#   9>        SEMICOLON[           CLASS][  6/  6/  7/  0][1/1/0][ 100000400][0-0]      ;
-#   9>          NEWLINE[            NONE][  7/  7/  1/  0][1/1/0][         0][1-0]
-#  10>      BRACE_CLOSE[           CLASS][  1/  1/  2/  0][0/0/0][ 100000400][0-0] }
-#  10>        SEMICOLON[           CLASS][  2/  2/  3/  0][0/0/0][ 100000000][0-0]  ;
-#  10>          NEWLINE[            NONE][  3/  3/  1/  0][0/0/0][         0][1-0]
+#   3>      COMMENT_CPP[   COMMENT_WHOLE][  1/  1/ 13/  0][1/1/0][         0][0-0] // Comment 1
+#   3>          NEWLINE[            NONE][ 13/ 13/  1/  0][1/1/0][         0][1-0]
+#   4>          TYPEDEF[            NONE][  1/  1/  8/  0][1/1/0][     70400][0-0] typedef
+#   4>             TYPE[            NONE][  9/  9/ 12/  1][1/1/0][     10480][0-0]         int
+#   4>             TYPE[            NONE][ 13/ 13/ 18/  1][1/1/0][  80000480][0-0]             test1
+#   4>        SEMICOLON[         TYPEDEF][ 18/ 18/ 19/  0][1/1/0][ 100000480][0-0]                  ;
+#   4>          NEWLINE[            NONE][ 19/ 19/  1/  0][1/1/0][         0][1-0]
+#   5>          PRIVATE[            NONE][  1/  1/  7/  0][1/1/0][     60400][0-0] public
+#   5>    PRIVATE_COLON[            NONE][  7/  7/  8/  0][1/1/0][ 100000400][0-0]       :
+#   5>          NEWLINE[            NONE][  8/  8/  1/  0][1/1/0][         0][1-0]
+#   6>      COMMENT_CPP[   COMMENT_WHOLE][  5/  1/ 13/  0][1/1/0][         0][0-0]     // Comment 2
+#   6>          NEWLINE[            NONE][ 17/ 13/  1/  0][1/1/0][         0][1-0]
+#   7>          TYPEDEF[            NONE][  5/  1/  8/  0][1/1/0][     70400][0-0]     typedef
+#   7>             TYPE[            NONE][ 13/  9/ 12/  1][1/1/0][     10480][0-0]             int
+#   7>             TYPE[            NONE][ 17/ 13/ 18/  1][1/1/0][  80000480][0-0]                 test2
+#   7>        SEMICOLON[         TYPEDEF][ 22/ 18/ 19/  0][1/1/0][ 100000480][0-0]                      ;
+#   7>          NEWLINE[            NONE][ 23/ 19/  5/  0][1/1/0][         0][2-0]
+#   9>            CLASS[            NONE][  5/  5/ 10/  0][1/1/0][     70400][0-1]     class
+#   9>             TYPE[           CLASS][ 11/ 11/ 13/  1][1/1/0][       400][0-0]           In
+#   9>          NEWLINE[            NONE][ 13/ 13/  5/  0][1/1/0][         0][1-0]
+#  10>       BRACE_OPEN[           CLASS][  5/  5/  6/  0][1/1/0][ 100000400][0-1]     {
+#  10>          NEWLINE[            NONE][  6/  6/  5/  0][2/2/0][         0][1-0]
+#  11>      COMMENT_CPP[   COMMENT_WHOLE][  5/  5/ 53/  0][2/2/0][         0][0-1]     // public and private should be aligned to class
+#  11>          NEWLINE[            NONE][ 53/ 53/  5/  0][2/2/0][         0][1-0]
+#  12>          PRIVATE[            NONE][  5/  5/ 11/  0][2/2/0][     60400][0-1]     public
+#  12>    PRIVATE_COLON[            NONE][ 11/ 11/ 12/  0][2/2/0][ 100000400][0-0]           :
+#  12>          NEWLINE[            NONE][ 12/ 12/  5/  0][2/2/0][         0][1-0]
+#  13>          TYPEDEF[            NONE][  9/  5/ 12/  0][2/2/0][     70400][0-1]         typedef
+#  13>             TYPE[            NONE][ 17/ 13/ 16/  1][2/2/0][     10480][0-0]                 int
+#  13>             TYPE[            NONE][ 21/ 17/ 22/  1][2/2/0][  80000480][0-0]                     test3
+#  13>        SEMICOLON[         TYPEDEF][ 26/ 22/ 23/  0][2/2/0][ 100000480][0-0]                          ;
+#  13>          NEWLINE[            NONE][ 27/ 23/  5/  0][2/2/0][         0][1-0]
+#  14>          PRIVATE[            NONE][  5/  5/ 12/  0][2/2/0][     60400][0-1]     private
+#  14>    PRIVATE_COLON[            NONE][ 12/ 12/ 13/  0][2/2/0][ 100000400][0-0]            :
+#  14>          NEWLINE[            NONE][ 13/ 13/  5/  0][2/2/0][         0][1-0]
+#  15>      BRACE_CLOSE[           CLASS][  5/  5/  6/  0][1/1/0][ 100060400][0-1]     }
+#  15>        SEMICOLON[           CLASS][  6/  6/  7/  0][1/1/0][ 100000400][0-0]      ;
+#  15>          NEWLINE[            NONE][  7/  7/  1/  0][1/1/0][         0][1-0]
+#  16>      BRACE_CLOSE[           CLASS][  1/  1/  2/  0][0/0/0][ 100000400][0-0] }
+#  16>        SEMICOLON[           CLASS][  2/  2/  3/  0][0/0/0][ 100000000][0-0]  ;
+#  16>          NEWLINE[            NONE][  3/  3/  1/  0][0/0/0][         0][1-0]
 # -=====-

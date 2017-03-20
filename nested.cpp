@@ -10,6 +10,7 @@ typedef int test2;
 	{
 	// public and private should be aligned to class
 	public:
+	typedef int test3;
 	private:
 	};
 };
