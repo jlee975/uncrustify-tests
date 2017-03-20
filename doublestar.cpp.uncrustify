@@ -4,7 +4,7 @@ int main()
 	int* p = &b;
 
 	// Should stay as b * *p
-	int a = b** p;
+	int a = b * *p;
 
 	// Correctly formats as a * b;
 	int c = b * a;
