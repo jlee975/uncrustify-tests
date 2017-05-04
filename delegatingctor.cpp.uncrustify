@@ -8,6 +8,9 @@ public:
 	{
 	}
 
+private:
+	int x;
+	int y;
 };
 
 class Bar
@@ -25,7 +28,7 @@ public:
 	Bar(
 		int x,
 		int y
-	) : Foo(x, y)
+	) : foo(x, y)
 	{
 	}
 
